@@ -37,9 +37,9 @@ class ViewController: UIViewController {
         
         //MARK: Example 1
         let sample  = MediField(name: "senthil", max: 12.54332)
-        let type1 = sample[keyPath: \MediField.name]
+        let name = sample[keyPath: \MediField.name]
 
-        print(type1) // senthil
+        print(name) // senthil
         
     
         
