@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        //MARK: Example 1
+        //MARK: Example 1 - Keyvalue
         let sample  = MediField(name: "senthil", max: 12.54332)
         let name = sample[keyPath: \MediField.name]
 
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         
     
         
-        //MARK: Example 2
+        //MARK: Example 2 - Keyvalue
         let foodKeyPath = \Cat.favoriteFood
         let caloryKeyPath = foodKeyPath.appending(path: \Food.calories)
 
@@ -52,9 +52,32 @@ class ViewController: UIViewController {
 
         let skittlesKcal = ani[keyPath: caloryKeyPath]
         print(skittlesKcal) // 999.0
+        
+        
+        //MARK: Example 3 - Callable values
+        var steps = StepCounter()
+        let  status : Bool  = steps(count:11)
+        if (status == true) {
+            print("true") // true
+        }else {
+            print("false")
+        }
 
     }
 
 
+    //MARK:Example 3 -  Callable values (callAsFunction)
+    struct StepCounter {
+        var steps = 0
+
+        mutating func callAsFunction(count: Int) -> Bool {
+            steps += count
+            print(steps)
+            return steps > 10
+        }
+    }
+    
+    
+    
 }
 
